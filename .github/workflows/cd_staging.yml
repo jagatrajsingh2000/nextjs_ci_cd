@@ -1,8 +1,7 @@
 name: Deploy on staging
 on:
   push:
-    branches:
-      - "development"
+    branches: [ development ]
 
 jobs:
   redeploy_everything:
