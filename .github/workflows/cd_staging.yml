@@ -5,16 +5,15 @@ on:
 
 jobs:
   redeploy_everything:
-  runs-on: ubuntu-latest
-  name : Deploying everything to the staging cluster
-
-  steps:
-    - run: |
-        echo {{ secrets.SSH_PRIVATE_KEY }} &> ~/ssh_key
-        ssh -i ~/ssh_key ubuntu@ec2-13-233-4-186.ap-south-1.compute.amazonaws.com 
-        cd nextjs_ci_cd
-        pnpm install
-        pnpm run build 
-        pm2 restart fe-server
-        pm2 restart http-server
-        pm2 restart ws-server
+    runs-on: ubuntu-latest
+    name : Deploying everything to the staging cluster
+    steps:
+      - run: |
+          echo {{ secrets.SSH_PRIVATE_KEY }} &> ~/ssh_key
+          ssh -i ~/ssh_key ubuntu@ec2-13-233-4-186.ap-south-1.compute.amazonaws.com 
+          cd nextjs_ci_cd
+          pnpm install
+          pnpm run build 
+          pm2 restart fe-server
+          pm2 restart http-server
+          pm2 restart ws-server
