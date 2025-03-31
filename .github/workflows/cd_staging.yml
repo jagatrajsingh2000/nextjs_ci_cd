@@ -11,7 +11,7 @@ jobs:
       - run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           mkdir -p /home/runner/.ssh
-          echo "${{screts.KNOWN_HOSTS }}" &> ~/home/runner/.ssh/known_hosts
+          echo "${{ screts.KNOWN_HOSTS }}" &> ~/home/runner/.ssh/known_hosts
           ssh -i ~/ssh_key ubuntu@ec2-43-204-235-94.ap-south-1.compute.amazonaws.com 
           cd nextjs_ci_cd
           pnpm install
