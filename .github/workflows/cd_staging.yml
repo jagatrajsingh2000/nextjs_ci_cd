@@ -17,10 +17,10 @@ jobs:
           echo "${{ secrets.KNOWN_HOSTS }}" &> /home/runner/.ssh/known_hosts
           chmod 700 /home/runner/ssh_key
           ssh -i ~/ssh_key ubuntu@ec2-43-204-235-94.ap-south-1.compute.amazonaws.com -t 
-          cd nextjs_ci_cd
-          git pull origin development
-          pnpm install
-          pnpm run build 
-          pm2 restart fe-server 
-          pm2 restart http-server
-          pm2 restart ws-server
+          "cd nextjs_ci_cd/ &&
+          git pull origin development &&
+          pnpm install &&
+          pnpm run build &&
+          pm2 restart fe-server &&
+          pm2 restart http-server &&
+          pm2 restart ws-server"
